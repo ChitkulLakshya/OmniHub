@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Mole | OmniHub 24</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="game-page">
+    <div class="container">
+        <nav class="game-nav">
+            <a href="../../index.html" class="back-link">
+                <i data-lucide="chevron-left"></i> Back to Arcade
+            </a>
+        </nav>
+
+        <main class="game-container">
+            <header class="game-header">
+                <h1>Whack-a-Mole</h1>
+                <div class="score-board">
+                    <div class="score-card yellow">
+                        <span class="label">Score</span>
+                        <span class="value" id="score">0</span>
+                    </div>
+                    <div class="score-card cyan">
+                        <span class="label">Time Left</span>
+                        <span class="value" id="timer">30s</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="mole-grid" id="grid">
+                <div class="hole"><div class="mole"></div></div>
+                <div class="hole"><div class="mole"></div></div>
+                <div class="hole"><div class="mole"></div></div>
+                <div class="hole"><div class="mole"></div></div>
+                <div class="hole"><div class="mole"></div></div>
+                <div class="hole"><div class="mole"></div></div>
+                <div class="hole"><div class="mole"></div></div>
+                <div class="hole"><div class="mole"></div></div>
+                <div class="hole"><div class="mole"></div></div>
+            </div>
+
+            <div class="game-controls">
+                <button id="start-btn" class="neon-btn yellow">
+                    <i data-lucide="play"></i> Start Blitz
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <div id="game-over" class="overlay hidden">
+        <div class="content">
+            <h2>TIME'S UP!</h2>
+            <p id="final-score">Score: 0</p>
+            <button id="restart-btn" class="neon-btn yellow">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

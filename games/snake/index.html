@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Retro | OmniHub 24</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="game-page">
+    <div class="container">
+        <nav class="game-nav">
+            <a href="../../index.html" class="back-link">
+                <i data-lucide="chevron-left"></i> Back to Arcade
+            </a>
+        </nav>
+
+        <main class="game-container">
+            <header class="game-header">
+                <h1>Snake Retro</h1>
+                <div class="score-board">
+                    <div class="score-card green">
+                        <span class="label">Score</span>
+                        <span class="value" id="score">0</span>
+                    </div>
+                    <div class="score-card yellow">
+                        <span class="label">High Score</span>
+                        <span class="value" id="high-score">0</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="canvas-wrapper">
+                <canvas id="snake-canvas" width="400" height="400"></canvas>
+                <div id="overlay" class="overlay hidden">
+                    <h2 id="overlay-title">GAME OVER</h2>
+                    <p id="final-score">Score: 0</p>
+                    <button id="start-btn" class="neon-btn green">Start Game</button>
+                </div>
+            </div>
+
+            <div class="game-footer">
+                <div class="controls-hint">
+                    <i data-lucide="keyboard"></i>
+                    <span>Use Arrows or WASD</span>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

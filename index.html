@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniHub 24 | Premium Game Suite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="skyline-overlay"></div>
+    <button class="theme-toggle" id="theme-btn" title="Toggle Theme">
+        <i data-lucide="moon"></i>
+    </button>
+    
+    <header class="main-header">
+        <div class="container">
+            <div class="logo">
+                <i data-lucide="layout-grid"></i>
+                <h1>OMNIHUB<span>24</span></h1>
+            </div>
+            <p class="tagline">The Definitive JavaScript Game Collection</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard-grid">
+            <!-- Tic-Tac-Toe -->
+            <a href="games/tic-tac-toe/index.html" class="game-card active">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-box neon-cyan">
+                        <i data-lucide="x-circle"></i>
+                    </div>
+                    <h3>Tic-Tac-Toe</h3>
+                    <p>Unbeatable AI powered by Minimax.</p>
+                    <span class="status">PLAY NOW</span>
+                </div>
+            </a>
+
+            <!-- Snake -->
+            <a href="#" class="game-card locked">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-box neon-green">
+                        <i data-lucide="line-chart"></i>
+                    </div>
+                    <h3>Snake Retro</h3>
+                    <p>Classic arcade slither action.</p>
+                    <span class="status">SEPT 01 RELEASE</span>
+                </div>
+            </a>
+
+            <!-- Memory Match -->
+            <a href="#" class="game-card locked">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-box neon-pink">
+                        <i data-lucide="brain-circuit"></i>
+                    </div>
+                    <h3>Memory Match</h3>
+                    <p>Test your cognitive recall.</p>
+                    <span class="status">SEPT 15 RELEASE</span>
+                </div>
+            </a>
+
+            <!-- Whack-a-Mole -->
+            <a href="#" class="game-card locked">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-box neon-yellow">
+                        <i data-lucide="hammer"></i>
+                    </div>
+                    <h3>Whack-a-Mole</h3>
+                    <p>Reflex testing mallet mayhem.</p>
+                    <span class="status">OCT 01 RELEASE</span>
+                </div>
+            </a>
+
+            <!-- RPS -->
+            <a href="#" class="game-card locked">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="icon-box neon-purple">
+                        <i data-lucide="hand"></i>
+                    </div>
+                    <h3>Rock Paper Scissors</h3>
+                    <p>Beat the probabilistic engine.</p>
+                    <span class="status">OCT 15 RELEASE</span>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 OmniHub Game Suite. All Rights Reserved.</p>
+            <div class="version-tag">v1.2.0-stable</div>
+        </div>
+    </footer>
+
+    <style>
+        .version-tag {
+            margin-top: 1rem;
+            font-family: monospace;
+            color: var(--neon-cyan);
+            opacity: 0.6;
+            font-size: 0.8rem;
+        }
+    </style>
+
+    <script>
+        lucide.createIcons();
+        
+        // Dynamic Glow Effect
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.onmousemove = e => {
+                const rect = card.getBoundingClientRect(),
+                x = e.clientX - rect.left,
+                y = e.clientY - rect.top;
+                card.style.setProperty("--mouse-x", `${x}px`);
+                card.style.setProperty("--mouse-y", `${y}px`);
+            };
+        });
+
+        // Theme Toggle Logic
+        const themeBtn = document.getElementById('theme-btn');
+        const themeIcon = themeBtn.querySelector('i');
+        
+        // Load saved theme
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light-mode');
+            themeIcon.setAttribute('data-lucide', 'sun');
+            lucide.createIcons();
+        }
+
+        themeBtn.onclick = () => {
+            const isLight = document.body.classList.toggle('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            themeIcon.setAttribute('data-lucide', isLight ? 'sun' : 'moon');
+            lucide.createIcons();
+        };
+    </script>
+</body>
+</html>
